@@ -85,7 +85,8 @@
 			"html/mine/headImg.html",
 			"html/mine/modifyPassword.html",
 			"html/mine/myorder.html",
-			"html/order/myorder.html"
+			"html/order/myorder.html",
+			"html/order/orderList.html"
 		],
 		"resources": [
 			"css/icons-extra.css",
@@ -157,5 +158,11 @@
 			"html/order/mealDetails_renew.html"
 		],
 		"resources": []
+	},
+	"html/order/orderList.html": {
+		"refer": [
+			"html/order/packageDetails_order.html",
+			"html/order/packageDetails_renew.html"
+		]
 	}
 }

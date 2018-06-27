@@ -182,7 +182,6 @@
 				<button v-on:click.stop="replyContent()" type="button" class="" style="width: 20%;margin-top: 2px;border: 0px;font-size: 18px;color: #00cfbd;">回复</button>
 			</div>
 		</nav>  
-		
 		<div class="mui-content" id="noticeDetailData" v-if="flag>0" style="background: white;">
 			<p style="color: black;padding: 10px;font-size: 14px;color: #333333;word-break: break-all;">{{noticesDetail.NoticeContent}}</p>
 			<!--<p class="" style="height: 10px;background-color: #f2f2f2;"></p>-->
@@ -198,11 +197,6 @@
 										</td>
 									  </tr>
 								</table>
-								<div id="videoPopover" class="mui-popover">
-									<video id="video" style="position: absolute;z-index: 999;"  webkit-playsinline playsinline>
-										您的浏览器不支持 video 标签。
-									</video>
-								</div>
 						</li>
 					</ul>
 				</div>
@@ -297,6 +291,13 @@
 				</div>
 			</div>
 		</div>
+		
+		<div id="videoPopover" class="mui-popover">
+			<video id="video" style="position: absolute;z-index: 999;">
+				您的浏览器不支持 video 标签。
+			</video>
+		</div>
+		
 		<div id="MultiMedia">
 			<div id="audioPopover" class="mui-popover">
 				<div id="audio_show" class="audio-show-popover">
@@ -349,6 +350,7 @@
 				mui.plusReady(function() {
 					//初始化图片查看控件
 					previewImage = mui.previewImage();
+					ShowVideoUtil.initVideo(document.getElementById('video'))
 					ShowAudioUtil.initAudioPopover({
 						show: document.getElementById("audio_show"),
 						icon: document.getElementById("audio_icon"),
@@ -372,12 +374,12 @@
 					},
 					methods: {
 						playVideo: function() {
+							console.log('playVideo:'+noticeDetailData.noticesDetail.NoticeEncAddr);
 							console.log('playVideo:'+noticeDetailData.noticesDetail.NoticeEncAddr[0]);
 							ShowVideoUtil.showVideo(document.getElementById("video"), 'videoPopover', noticeDetailData.noticesDetail.NoticeEncAddr[0], noticeDetailData.noticesDetail.NoticeEncImgAddr);
 						}
 					},mounted:function(){
 						console.log('1111111111111'+document.getElementById('video'))
-						ShowVideoUtil.initVideo(document.getElementById('video'))
 					}
 				});
 				//点击图片的数字
