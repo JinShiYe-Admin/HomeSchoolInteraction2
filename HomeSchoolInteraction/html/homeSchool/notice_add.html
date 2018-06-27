@@ -191,6 +191,11 @@
 				document.getElementById('senMSN').style.display = 'inherit';
 				//设置底部卡片上边距-15px→10px;
 				document.getElementById("bootom-card").style.marginTop = "10px";
+			
+			mui.plusReady(function() {
+				init();
+				
+				multiMedia.initEvent();
 				/**
 				 * 播放视频
 				 * @param {Object} data
@@ -208,10 +213,7 @@
 					//console.log('audioPlayCallBack ' + JSON.stringify(data));
 					ShowAudioUtil.initAudio(data, 1);
 				}
-			
-			mui.plusReady(function() {
-				init();
-				multiMedia.initEvent(); 
+				
 				initListener(); //初始化监听
 				//判断是否包含班主任身份
 				for(var i = 0; i < personal.clss.length; i++) {
