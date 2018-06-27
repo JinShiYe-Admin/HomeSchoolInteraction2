@@ -40,7 +40,7 @@ var MultiMedia = (function($, mod) {
 		//初始化
 		this.init();
 		this.initData();
-		this.initEvent();
+//		this.initEvent();
 	}
 
 	var proto = MultiMedia.prototype; //属性使您有能力向对象添加属性和方法。
@@ -109,9 +109,9 @@ var MultiMedia = (function($, mod) {
 			this.data.VideoArray = [];
 			this.data.VideoWith = parseInt(document.getElementById(this.options.Id).offsetWidth * 0.2);
 			this.data.VideoMarginLeft = parseInt(document.getElementById(this.options.Id).offsetWidth * 0.04);
-		}
+		}  
 	}
-
+	 
 	//初始化监听
 	proto.initEvent = function() {
 		////console.log('MultiMedia-initEvent');
