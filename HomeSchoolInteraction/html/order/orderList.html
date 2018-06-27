@@ -169,14 +169,14 @@
 				,methods:{
 					toMealDetails:function(event,item){
 						var _event=event.target;
-				        if( $(_event).attr('class') == 'mui-ellipsis'){ //点击li标签
+				        if($(_event).attr('class') =='ul-btn') {//点击li下的button
+				        	 this.$options.methods.btnClick(item);
+				        }else { //点击li标签
 				        	if(item.orderState==1)
 								utils.mOpenWithData("../../html/order/packageDetails_order.html", item);
 							else
 								utils.mOpenWithData("../../html/order/packageDetails_renew.html", item);
-				        } else if($(_event).attr('class') =='ul-btn') {//点击li下的button
-				        	 this.$options.methods.btnClick(item);
-				        }
+				        } 
 						
 					}
 					,btnClick:function(item){

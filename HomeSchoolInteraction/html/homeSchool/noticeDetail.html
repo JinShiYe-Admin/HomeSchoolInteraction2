@@ -24,7 +24,7 @@
 				width: 100%;
 				height: 0px;
 				padding-bottom: 100%;
-				overflow: hidden;
+				overflow: hidden; 
 				margin: 0;
 				position: relative;
 			}
@@ -146,6 +146,28 @@
 				color: #00CFBD;
 				border-bottom: 2px solid #00CFBD;
 			}
+			
+			.tb-width{
+				width: 100%;
+				height: 150px;
+				margin-bottom:10px;
+			}
+			
+			.videoImg{
+				position:absolute;
+				vertical-align: middle;
+				height: 150px;
+				width: 200px;
+				left: 0;
+				top: 0;
+			}
+			.videoImg2{
+				position:absolute;
+				height: 55px;
+				width:55px;
+				left: 75px;
+				top: 50px; 
+			}
 		</style>
 	</head>
 
@@ -159,29 +181,29 @@
 				<input v-model="content" maxlength="200" type="text" style="border: 0px;margin-bottom: 0px;margin-left: 5px;width: 75%;font-size: 16px;color: #999999;" placeholder="请输入要回复的内容" />
 				<button v-on:click.stop="replyContent()" type="button" class="" style="width: 20%;margin-top: 2px;border: 0px;font-size: 18px;color: #00cfbd;">回复</button>
 			</div>
-		</nav>
-
+		</nav>  
+		
 		<div class="mui-content" id="noticeDetailData" v-if="flag>0" style="background: white;">
 			<p style="color: black;padding: 10px;font-size: 14px;color: #333333;word-break: break-all;">{{noticesDetail.NoticeContent}}</p>
 			<!--<p class="" style="height: 10px;background-color: #f2f2f2;"></p>-->
 			<div id="" v-show="noticesDetail.NoticeEncAddr.length>0">
 				<div class="" v-if="noticesDetail.NoticeEncAddr.length==1&&noticesDetail.encFlag==2">
 					<ul class="mui-table-view mui-grid-view">
-						<li class="mui-table-view-cell mui-media" v-for="(picModel,index) in noticesDetail.NoticeEncAddr" @tap="playVideo">
-							<video v-if="noticesDetail.NoticeEncImgAddr&&noticesDetail.NoticeEncImgAddr.length>0" controls :poster='noticesDetail.NoticeEncImgAddr' style="height: 180px;width: 180px;">
-								<source :src=noticesDetail.NoticeEncAddr type="video/mp4">
-							</video>
-							<video v-else="" poster="../../img/utils/playvideo2.png" controls style="height: 180px;width: 180px;">
-								<source :src=noticesDetail.NoticeEncAddr type="video/mp4">
-							</video>
-							<!--<a href="#">
-								<img v-if="noticesDetail.NoticeEncImgAddr&&noticesDetail.NoticeEncImgAddr.length>0" @click="playVideo" class="notice-one-img mui-media-object" :src=noticesDetail.NoticeEncImgAddr style="height: 180px;width: 180px;">
-								<img v-else="" @click="playVideo" class="notice-one-img mui-media-object" src="../../img/utils/playvideo2.png" style="height: 180px;width: 180px;"></a>-->
+						<li class="mui-table-view-cell mui-media tb-width" v-for="(picModel,index) in noticesDetail.NoticeEncAddr" >
+								<table border="0" cellpadding="0" cellspacing="0" class="tb-width">
+									  <tr class="tb-width">
+									    <td class="tb-width" style="position:relative;">
+											<img class="videoImg" :src=noticesDetail.NoticeEncImgAddr onload="this.style.marginTop = (parseInt(this.parentNode.style.height) - this.height)/2 + 'px';this.style.marginLeft = (parseInt(this.parentNode.style.width) - this.width) /2 + 'px'">
+											<img class="videoImg2" src="../../img/utils/playVideo.png" @tap="playVideo">
+										</td>
+									  </tr>
+								</table>
+								<div id="videoPopover" class="mui-popover">
+									<video id="video" style="position: absolute;z-index: 999;"  webkit-playsinline playsinline>
+										您的浏览器不支持 video 标签。
+									</video>
+								</div>
 						</li>
-						<!--<li class="mui-table-view-cell mui-media mui-col-xs-12" v-for="(picModel,index) in noticesDetail.NoticeEncAddr">
-							<a href="#" style="">
-								<img @click="playVideo" class="mui-media-object video-play" src="../../img/utils/playvideo.png" style="margin-left: 15px;height: 80px;width: 80px;"></a>
-						</li>-->
 					</ul>
 				</div>
 				<div class="" v-else-if="noticesDetail.NoticeEncAddr.length==1&&noticesDetail.encFlag==1">
@@ -231,7 +253,7 @@
 				<a id="item2" class="mui-control-item readPeople slider-list" href="#NoReadArray">
 					未浏览({{noticesDetail.NoReadArray.length}})
 				</a>
-			</div>
+			</div> 
 			<!--滑动内容-->
 			<div class="mui-slider-group" style="">
 				<div id="ReplyArray" class="mui-slider-item mui-control-content mui-active">
@@ -274,11 +296,6 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-		<div id="videoPopover" class="mui-popover">
-			<video id="video" style="position: absolute;z-index: 999;" controls="controls" webkit-playsinline playsinline>
-				您的浏览器不支持 video 标签。
-			</video>
 		</div>
 		<div id="MultiMedia">
 			<div id="audioPopover" class="mui-popover">
@@ -332,8 +349,6 @@
 				mui.plusReady(function() {
 					//初始化图片查看控件
 					previewImage = mui.previewImage();
-					//初始化视频播放器
-					ShowVideoUtil.initVideo(document.getElementById("video"));
 					ShowAudioUtil.initAudioPopover({
 						show: document.getElementById("audio_show"),
 						icon: document.getElementById("audio_icon"),
@@ -360,6 +375,9 @@
 							console.log('playVideo:'+noticeDetailData.noticesDetail.NoticeEncAddr[0]);
 							ShowVideoUtil.showVideo(document.getElementById("video"), 'videoPopover', noticeDetailData.noticesDetail.NoticeEncAddr[0], noticeDetailData.noticesDetail.NoticeEncImgAddr);
 						}
+					},mounted:function(){
+						console.log('1111111111111'+document.getElementById('video'))
+						ShowVideoUtil.initVideo(document.getElementById('video'))
 					}
 				});
 				//点击图片的数字
