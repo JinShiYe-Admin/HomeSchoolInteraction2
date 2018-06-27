@@ -1,0 +1,161 @@
+{
+	"html/sciedu/sciedu_home.html": {
+		"refer": [
+			"html/sciedu/sciedu_show_main.html",
+			"html/utils/customizeCity.html"
+		],
+		"resources": [
+			"js/utils/postData.js"
+		]
+	},
+	"html/login/firstPage.html": {
+		"refer": [
+			"html/login/noPermissions.html",
+			"index2.html",
+			"index.html"
+		],
+		"resources": [
+			"js/publicProtocolNew.js",
+			"js/utils/vconsole.min.js",
+			"js/utils/utils.js",
+			"js/storageKeyName.js",
+			"js/utils/events.js",
+			"js/libs/RSA/Barrett.js",
+			"js/libs/crypto-js/require.js",
+			"js/utils/store.js",
+			"js/utils/storageutil.js",
+			"js/libs/jquery.js",
+			"js/mui.min.js",
+			"js/libs/RSA/BigInt.js",
+			"js/utils/sortSign.js",
+			"js/libs/RSA/RSA.js",
+			"js/utils/signHmacSHA1.js",
+			"js/utils/RSAEncrypt.js",
+			"js/libs/crypto-js/crypto-js.js"
+		]
+	},
+	"html/login/noPermissions.html": {
+		"resources": [
+			"html/login/loginFnoPermissions.html"
+		],
+		"refer": [
+			"html/Course/courseIndex.html",
+			"html/sciedu/sciedu_home.html",
+			"html/helpStudy/helpStudyIndex.html",
+			"html/login/loginFnoPermissions.html"
+		]
+	},
+	"index2.html": {
+		"resources": [
+			"html/login/loginFnoPermissions.html"
+		],
+		"refer": [
+			"html/Course/courseIndex.html",
+			"html/sciedu/sciedu_home.html",
+			"html/helpStudy/helpStudyIndex.html",
+			"html/login/loginFnoPermissions.html"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"html/homeSchool/homeSchoolIndex.html"
+		],
+		"refer": [
+			"html/Course/courseIndex.html",
+			"html/sciedu/sciedu_home.html",
+			"html/helpStudy/helpStudyIndex.html",
+			"html/homeSchool/homeSchoolIndex.html"
+		]
+	},
+	"html/homeSchool/homeSchoolIndex.html": {
+		"refer": [
+			"html/homeSchool/mine.html",
+			"html/homeSchool/noticeList.html",
+			"html/mine/mine.html"
+		],
+		"resources": [
+			"js/libs/crypto-js/crypto-js.js"
+		]
+	},
+	"html/homeSchool/mine.html": {
+		"refer": [
+			"html/login/loginIndex.html",
+			"html/login/firstPage.html",
+			"html/login/firstPage1.html",
+			"html/mine/headImg.html",
+			"html/mine/modifyPassword.html",
+			"html/mine/myorder.html",
+			"html/order/myorder.html"
+		],
+		"resources": [
+			"css/icons-extra.css",
+			"js/utils/vconsole.min.js",
+			"js/utils/vue.js",
+			"js/utils/sortSign.js"
+		]
+	},
+	"html/login/loginFnoPermissions.html": {
+		"refer": [
+			"index.html",
+			"html/register/register.html"
+		],
+		"resources": []
+	},
+	"html/login/loginIndex.html": {
+		"refer": [
+			"index.html",
+			"index2.html"
+		],
+		"resources": []
+	},
+	"html/homeSchool/noticeList.html": {
+		"refer": [
+			"html/homeSchool/noticeDetail.html",
+			"html/homeSchool/notice_add.html"
+		],
+		"resources": []
+	},
+	"html/homeSchool/notice_add.html": {
+		"refer": [
+			"html/homeSchool/gradeList.html"
+		],
+		"resources": []
+	},
+	"html/login/firstPage1.html": {
+		"refer": [
+			"index2.html"
+		],
+		"resources": []
+	},
+	"html/mine/myorder.html": {
+		"refer": [
+			"html/mine/mealDetails.html",
+			"html/mine/mealDetails_order.html"
+		],
+		"resources": []
+	},
+	"html/order/myorder.html": {
+		"refer": [
+			"html/order/mealDetails_order.html",
+			"html/order/mealDetails_renew.html"
+		],
+		"resources": []
+	},
+	"html/mine/mine.html": {
+		"refer": [
+			"html/order/myorder.html",
+			"html/order/myOrderList.html",
+			"html/order/orderList.html",
+			"html/mine/modifyPassword.html",
+			"html/login/firstPage1.html"
+		],
+		"resources": []
+	},
+	"html/order/myOrderList.html": {
+		"refer": [
+			"html/order/mealDetails_order.html",
+			"html/order/mealDetails_renew.html"
+		],
+		"resources": []
+	}
+}
