@@ -422,9 +422,9 @@
 					schoolId: personal.schid, //学校ID,统一部署的时候，学校ID传000000
 				}
 //				plus.device.vibrate(500);
-				events.showWaiting();
+//				events.showWaiting();
 				getNoReadNoticeCntByManPro(tempData, function function_name(data) {
-					events.closeWaiting();
+//					events.closeWaiting();
 					console.log('12data:' + JSON.stringify(data));
 					if(data.RspCode == 0) {
 						contentData.NoReadCnt = data.RspData.NoReadCnt;
