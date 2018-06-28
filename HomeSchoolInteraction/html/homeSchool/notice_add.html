@@ -181,7 +181,7 @@
 					MultiMediaId: 'MultiMedia', //存放多媒体对象控件的id
 					Key: store.get(window.storageKeyName.PERSONALINFO).utid, //utid
 					Picture: true, //是否显示图片图标
-					Audio: true, //是否显示音频图标
+					Audio: false, //是否显示音频图标
 					Video: true, //是否显示视频图标
 					TotalPicture: 9, //图片的个数
 					TotalAudio: 1, //音频的个数
@@ -194,25 +194,6 @@
 			
 			mui.plusReady(function() {
 				init();
-				
-				multiMedia.initEvent();
-				/**
-				 * 播放视频
-				 * @param {Object} data
-				 */
-				multiMedia.videoPlayCallBack = function(data) {
-					//console.log("videoPlayCallBack")
-					ShowVideoUtil.showVideo(document.getElementById("video"), 'videoPopover', data.path, data.localthumb);
-				}
-
-				/**
-				 * 播放音频
-				 * @param {Object} data
-				 */
-				multiMedia.audioPlayCallBack = function(data) {
-					//console.log('audioPlayCallBack ' + JSON.stringify(data));
-					ShowAudioUtil.initAudio(data, 1);
-				}
 				
 				initListener(); //初始化监听
 				//判断是否包含班主任身份
@@ -424,6 +405,25 @@
 			 */
 			function init() {
 				events.blurBack();
+				
+				multiMedia.initEvent();
+				/**
+				 * 播放视频
+				 * @param {Object} data
+				 */
+				multiMedia.videoPlayCallBack = function(data) {
+					//console.log("videoPlayCallBack")
+					ShowVideoUtil.showVideo(document.getElementById("video"), 'videoPopover', data.path, data.localthumb);
+				}
+
+				/**
+				 * 播放音频
+				 * @param {Object} data
+				 */
+				multiMedia.audioPlayCallBack = function(data) {
+					//console.log('audioPlayCallBack ' + JSON.stringify(data));
+					ShowAudioUtil.initAudio(data, 1);
+				}
 
 				//图片查看控件
 				mui.previewImage();

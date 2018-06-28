@@ -3,7 +3,7 @@
 	"id": "H58C991B7",/*应用的标识，创建应用时自动生成，勿手动修改*/
 	"name": "校讯通",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0.0",/*应用版本名称*/
+		"name": "1.0.1",/*应用版本名称*/
 		"code": "83"
 	},
 	"description": "",/*应用描述信息*/
@@ -118,7 +118,7 @@
 				},
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": ""
+					"ldpi": "","hdpi":"/Users/a111/Downloads/启动/480762.png","xhdpi":"/Users/a111/Downloads/启动/7201242.png","xxhdpi":"/Users/a111/Downloads/启动/10801882.png"
 				}
 			}
 		},"ads":{"rp":false,"splash":false,"push":false}
@@ -176,7 +176,16 @@
 			},
 			"html/sciedu/sciedu_home.html": {
 				"resources": [
-					"js/utils/postData.js"
+					"js/utils/postData.js",
+					"js/publicProtocolNew.js",
+					"js/publicProtocol.js",
+					"js/utils/utils.js",
+					"js/storageKeyName.js",
+					"js/utils/events.js",
+					"js/sciedu/SciEduHomeItem.js",
+					"js/mui.lazyload.js",
+					"js/utils/store.js",
+					"js/mui.lazyload.img.js"
 				],
 				"refer": [
 					"html/sciedu/sciedu_show_main.html",
@@ -340,7 +349,6 @@
 				"js/libs/CryptoJS/components/hmac-min.js",
 				"js/utils/showvideoutil.js",
 				"css/utils/MultiMedia.css",
-				"js/mui.lazyload.js",
 				"js/libs/crypto-js/bower.json",
 				"img/homeSchool/u296.png",
 				"js/utils/vue.min.js",
@@ -505,7 +513,6 @@
 				"js/libs/CryptoJS/rollups/hmac-md5.js",
 				"img/utils/default_load.png",
 				"js/utils/textarea.js",
-				"js/sciedu/SciEduHomeItem.js",
 				"js/libs/CryptoJS/components/evpkdf-min.js",
 				"css/utils/sciedu/sciedu.css",
 				"js/libs/CryptoJS/components/mode-ctr-gladman.js",
@@ -542,7 +549,6 @@
 				"js/utils/Statusbar.js",
 				"js/libs/crypto-js/pad-pkcs7.js",
 				"js/libs/CryptoJS/components/pbkdf2.js",
-				"js/mui.lazyload.img.js",
 				"js/utils/self-adaptive-input.js",
 				"js/libs/CryptoJS/components/sha512.js",
 				"fonts/mui-icons-extra1.ttf",
@@ -565,7 +571,6 @@
 				"js/utils/gallerypick.js",
 				"js/libs/CryptoJS/components/core.js",
 				"img/login/password.png",
-				"js/publicProtocol.js",
 				"js/libs/CryptoJS/rollups/rabbit-legacy.js",
 				"js/libs/crypto-js/index.js",
 				"js/utils/QiNiuUtil.js",
