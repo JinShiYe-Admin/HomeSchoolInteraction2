@@ -145,6 +145,12 @@
 							href: "",
 							tempID: 1,
 							cls: 'mui-icon-extra mui-icon-extra-cart'
+						},{
+							name: "关于我们",
+							icon: "",
+							href: "",
+							tempID: 2,
+							cls: 'mui-icon mui-icon-info'
 						}],
 						isMineShow: false //屏蔽或显示我的界面
 					},
@@ -163,6 +169,8 @@
 								utils.mOpenWithData("../../html/mine/modifyPassword.html", tempModel);
 							} else if(setting.tempID == 1) {
 								utils.mOpenWithData("../../html/order/orderList.html", setting);
+							} else if(setting.tempID == 2) {
+								utils.mOpenWithData("../../html/mine/about.html", setting);
 							}
 						},
 						clickHeadImg: function() {
