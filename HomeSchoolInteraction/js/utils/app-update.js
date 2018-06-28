@@ -3,7 +3,7 @@
  */
 var appUpdate = (function(mod) {
 	
-	mod.androidUpdateUrl='http://192.168.1.182:8071/app/versionCode.xml';
+	mod.androidUpdateUrl='http://192.168.1.121:8080/app/versionCode.xml';
 	mod.iosUpdateUrl='http://itunes.apple.com/lookup?id=1281905607';
 	
 	mod.fileSize;
@@ -28,11 +28,10 @@ var appUpdate = (function(mod) {
 			request.send();
 
 			return;
+		}else{
+			//android 更新逻辑
+			getXml(school_id);
 		}
-		
-		//android 更新逻辑
-		getXml(school_id);
-		
 //		var tempVVL = 'android';
 //		//所需参数
 //		var comData9 = {
