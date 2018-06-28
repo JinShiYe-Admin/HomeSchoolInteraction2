@@ -11,9 +11,9 @@ var ShowVideoUtil = (function(mod) {
 	mod.initVideo = function(videoElement) {
 		videoElement.style.width = plus.screen.resolutionWidth + 'px';
 		videoElement.style.height = parseInt(plus.screen.resolutionWidth * 3 / 4) + 'px';
-//		videoElement.style.marginTop = (plus.screen.resolutionHeight - 45 - plus.navigator.getStatusbarHeight() - parseInt(plus.screen.resolutionWidth * 3 / 4)) / 2 + 'px';
+		videoElement.style.marginTop = (plus.screen.resolutionHeight - 45 - plus.navigator.getStatusbarHeight() - parseInt(plus.screen.resolutionWidth * 3 / 4)) / 2 + 'px';
 //		videoElement.style.marginTop = -(plus.screen.resolutionHeight *(1/16))+ 'px'; 
-		videoElement.style.marginTop = -(plus.screen.resolutionHeight *(1/3.5))+ 'px'; 
+//		videoElement.style.marginTop = -(plus.screen.resolutionHeight *(1/3.5))+ 'px'; 
 
 	}
 
