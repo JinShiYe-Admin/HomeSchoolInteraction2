@@ -248,7 +248,26 @@ var MultiMedia = (function($, mod) {
 					case 0: //取消
 						break;
 					case 1: //录像
-						RecordVideo.recordVideo({}, function(fpath) {
+						var cmr = plus.camera.getCamera();
+						cmr.startVideoCapture(function(p){
+							plus.io.resolveLocalFileSystemURL(p, function(entry){
+								if(self.data.VideoNum > 0) {
+									var wd = events.showWaiting('处理中...');
+									self.data.VideoNum--;
+								//console.log('录制视频成功 ' + fpath);
+									self.addVideos(entry.toLocalURL(), function() {
+										wd.close();
+									});
+								}
+//								createItem(entry);
+							}, function(e){
+								console.log('读取录像文件错误：'+e.message);
+							} );
+						}, function(e){
+							console.log('失败：'+e.message);
+						}, {filename:'_doc/camera/',index:0});
+						
+						/*RecordVideo.recordVideo({}, function(fpath) {
 							if(self.data.VideoNum > 0) {
 								var wd = events.showWaiting('处理中...');
 								self.data.VideoNum--;
@@ -260,7 +279,7 @@ var MultiMedia = (function($, mod) {
 							}
 						}, function(err) {
 							mui.toast(err.message);
-						});
+						});*/
 						break;
 					case 2: //从相册选择
 						Gallery.pickVideo(function(data) {
