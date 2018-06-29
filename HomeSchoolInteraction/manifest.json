@@ -102,8 +102,8 @@
 				"ios": {
 					"iphone": {
 						"default": "", /*iPhone3启动图片选，分辨率：320x480*/
-						"retina35": "/Users/jinshiye/Downloads/downfiles/智慧校园启动页/640960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
-						"retina40": "/Users/jinshiye/Downloads/downfiles/智慧校园启动页/6401136.png","iphonex":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/11252436.png","retina47":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/7501334.png","retina55":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/12422208.png"
+						"retina35": "/Users/jinshiye/Downloads/downfiles/启动/校讯通启动页640 960.png",/*3.5英寸设备(iPhone4)启动图片，分辨率：640x960*/
+						"retina40": "/Users/jinshiye/Downloads/downfiles/启动/校讯通启动页640 1136.png","iphonex":"/Users/jinshiye/Downloads/downfiles/启动/校讯通启动页1125 2436.png","retina47":"/Users/jinshiye/Downloads/downfiles/启动/校讯通启动页750 1334.png","retina55":"/Users/jinshiye/Downloads/downfiles/启动/校讯通启动页1242 2208.png"
 					},
 					"ipad": {
 						"portrait": "", /*iPad竖屏启动图片，分辨率：768x1004*/
@@ -118,7 +118,7 @@
 				},
 				"android": {
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
-					"ldpi": "","hdpi":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/480 762.png","xhdpi":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/720 1242.png","xxhdpi":"/Users/jinshiye/Downloads/downfiles/智慧校园启动页/1080 1882.png"
+					"ldpi": "","hdpi":"/Users/jinshiye/Downloads/downfiles/启动/480762.png","xhdpi":"/Users/jinshiye/Downloads/downfiles/启动/7201242.png","xxhdpi":"/Users/jinshiye/Downloads/downfiles/启动/10801882.png"
 				}
 			}
 		},"ads":{"rp":false,"splash":false,"push":false},"adid":"127020240505"

@@ -2,7 +2,7 @@
 
 var storageKeyName = (function(mod) {
 
-	mod.key = 0; //0,开发;1,测试--教宝云;2,测试--微视学堂 3外网--微视学堂 4外网--教宝云
+	mod.key = 0; //0,开发;1,部署外网
 	var exLog = console.log;
 	console.log = function(hint, object) {
 		if(mod.key === 0) {
@@ -36,96 +36,27 @@ var storageKeyName = (function(mod) {
 			mod.QNGETTOKENDELETE = 'http://114.215.222.186:8004/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
 			//	---七牛空间和接口---开发---end---
 			break;
-		case 1: //测试--教宝云
-			mod.SCHOOLID = 100008;//学校ID
+		case 1: //部署外网
+			mod.SCHOOLID = 100005;//学校ID
 			mod.USERTYPE = 0;//用户类型，0老师,1家长,2学生
-			mod.INTERFACEGU = 'https://zhxyapi.jiaobaowang.net:8501/api/Data/';//顾工接口
-			mod.INTERFACEKONG = 'https://jbyj.jiaobaowang.net:8443/SchoolOAService/';//孔工接口
-			//---测试---start---
-			mod.MAINEDU = 'http://192.168.1.178:8511/'; //科教图片url
-			mod.MAINURL = 'http://192.168.1.178:8511/api/CloudApi/'; //主url
-			mod.MAINJIAOXIAOURL = 'http://192.168.1.178:8080/JiaoBaoCloudService/'; //家校圈url
-			mod.MAINHOMEWORKURL = 'http://192.168.1.178:8088/'; //作业主url
-			mod.MAINQIUZHI = 'http://192.168.1.178:8080/JiaoBaoCloudService/'; //求知主url
-			mod.MAINMICROCLASS = 'http://192.168.1.178:8080//JiaoBaoCloudService/'; //微课主url
-			
-			//---测试---end---
-
-			//---七牛空间和接口---测试---start---
-			mod.QNPB = 'http://qn-cspb.jiaobaowang.net/'; //公开空间域名
-			mod.QNGETUPLOADTOKEN = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen';
-			mod.QNGETUPTOKENHEADIMGE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传个人头像，群头像，资料头像到七牛的token的url
-			mod.QNGETUPTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传文件（云存储）到七牛的token的url
-			mod.QNGETDOWNTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetAccess'; //获取下载文件（云存储）的token的url，url+七牛文件url
-			mod.QNGETTOKENDELETE = 'http://114.215.222.186:8005/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
-			//---七牛空间和接口---测试---end---
-			break;
-		case 2: //测试--微视学堂
-			mod.SCHOOLID = 100008;//学校ID
-			mod.USERTYPE = 0;//用户类型，0老师,1家长,2学生
-			mod.INTERFACEGU = 'https://jsycs.jiaobaowang.net:9443/api/data/';//顾工接口
-			mod.INTERFACEKONG = 'https://jsycs.jiaobaowang.net:9444/SchoolOAService/';//孔工接口
-			//---移动版---start---
-			mod.MAINEDU = 'http://192.168.1.178:8020/'; //科教图片url
-			mod.MAINURL = 'http://192.168.1.178:8020/api/CloudApi/'; //主url
-			mod.MAINJIAOXIAOURL = 'http://192.168.1.178:8080/JiaoBaoCloudService/'; //家校圈url
-			mod.MAINHOMEWORKURL = 'http://192.168.1.178:8021/'; //作业主url
-			mod.MAINQIUZHI = 'http://192.168.1.178:8080/JiaoBaoCloudService/'; //求知主url
-			mod.MAINMICROCLASS = 'http://192.168.1.178:8080/JiaoBaoCloudService/'; //微课主url
-			//---内网---end---
-
-			//---七牛空间和接口---测试---start---
-			mod.QNPB = 'http://qn-cspb.jiaobaowang.net/'; //公开空间域名
-			mod.QNGETUPLOADTOKEN = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen';
-			mod.QNGETUPTOKENHEADIMGE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传个人头像，群头像，资料头像到七牛的token的url
-			mod.QNGETUPTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传文件（云存储）到七牛的token的url
-			mod.QNGETDOWNTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetAccess'; //获取下载文件（云存储）的token的url，url+七牛文件url
-			mod.QNGETTOKENDELETE = 'http://114.215.222.186:8005/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
-			break;
-		case 3: //外网--微视学堂
-			mod.SCHOOLID = 100008;//学校ID
-			mod.USERTYPE = 0;//用户类型，0老师,1家长,2学生
-			mod.INTERFACEGU = 'https://jsycs.jiaobaowang.net:9443/api/data/';//顾工接口
-			mod.INTERFACEKONG = 'https://jsycs.jiaobaowang.net:9444/SchoolOAService/';//孔工接口
-			//---移动版---start---
-			mod.MAINEDU = 'http://114.215.222.186:8009/'; //科教图片url
-			mod.MAINURL = 'http://114.215.222.186:8009/api/CloudApi/'; //主url
-			mod.MAINJIAOXIAOURL = 'http://114.215.222.194:8088/JiaoBaoCloudService/'; //家校圈url
-			mod.MAINHOMEWORKURL = 'http://114.215.222.186:8008/'; //作业主url
-			mod.MAINQIUZHI = 'http://114.215.222.194:8088/JiaoBaoCloudService/'; //求知主url
-			mod.MAINMICROCLASS = 'http://114.215.222.194:8088/JiaoBaoCloudService/'; //微课主url
-			//---外网---end---
-
-			//---七牛空间和接口---测试---start---
-			mod.QNPB = 'http://qn-cspb.jiaobaowang.net/'; //公开空间域名
-			mod.QNGETUPLOADTOKEN = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen';
-			mod.QNGETUPTOKENHEADIMGE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传个人头像，群头像，资料头像到七牛的token的url
-			mod.QNGETUPTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetUpLoadToKen'; //获取上传文件（云存储）到七牛的token的url
-			mod.QNGETDOWNTOKENFILE = 'http://114.215.222.186:8005/Api/QiNiu/GetAccess'; //获取下载文件（云存储）的token的url，url+七牛文件url
-			mod.QNGETTOKENDELETE = 'http://114.215.222.186:8005/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
-			break;
-		case 4: //外网--教宝云
-			mod.SCHOOLID = 100008;//学校ID
-			mod.USERTYPE = 0;//用户类型，0老师,1家长,2学生
-			mod.INTERFACEGU = 'https://jsycs.jiaobaowang.net:9443/api/data/';//顾工接口
-			mod.INTERFACEKONG = 'https://jsycs.jiaobaowang.net:9444/SchoolOAService/';//孔工接口
-			//---外网---start---
+			mod.INTERFACEGU = 'https://jsypay.jiaobaowang.net/useradminwebapi/api/data/';//顾工接口
+			mod.INTERFACEKONG = 'https://jbyj.jiaobaowang.net/SchoolCommunicationService/';//孔工接口
+			//---开发---start---
 			mod.MAINEDU = 'https://jbyc.jiaobaowang.net:8442/'; //科教图片url
 			mod.MAINURL = 'https://jbyc.jiaobaowang.net:8442/api/CloudApi/'; //主url
-			mod.MAINJIAOXIAOURL = 'https://jbyj.jiaobaowang.net/JiaoBaoCloudService/'; //家校圈url
-			mod.MAINHOMEWORKURL = 'https://jbyc.jiaobaowang.net:8441/'; //作业主url
-			mod.MAINQIUZHI = 'https://jbyj.jiaobaowang.net/JiaoBaoCloudService/'; //求知主url
-			mod.MAINMICROCLASS = 'https://jbyj.jiaobaowang.net/JiaoBaoCloudService/'; //微课主url
-			//---外网---end---
-
-			//---七牛空间和接口---测试---start---
-			mod.QNPB = 'http://qn-cspb.jiaobaowang.net/'; //公开空间域名
-			mod.QNGETUPLOADTOKEN = 'https://jbyc.jiaobaowang.net:8445/Api/QiNiu/GetUpLoadToKen';
-			mod.QNGETUPTOKENHEADIMGE = 'https://jbyc.jiaobaowang.net:8445/Api/QiNiu/GetUpLoadToKen'; //获取上传个人头像，群头像，资料头像到七牛的token的url
-			mod.QNGETUPTOKENFILE = 'https://jbyc.jiaobaowang.net:8445/Api/QiNiu/GetUpLoadToKen'; //获取上传文件（云存储）到七牛的token的url
-			mod.QNGETDOWNTOKENFILE = 'https://jbyc.jiaobaowang.net:8445/Api/QiNiu/GetAccess'; //获取下载文件（云存储）的token的url，url+七牛文件url
-			mod.QNGETTOKENDELETE = 'https://jbyc.jiaobaowang.net:8445/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
-			//---七牛空间和接口---测试---end---
+			mod.MAINJIAOXIAOURL = 'http://192.168.1.113:8081/JiaoBaoCloudService/'; //家校圈url
+			mod.MAINHOMEWORKURL = 'http://192.168.1.44:8513/'; //作业主url
+			mod.MAINQIUZHI = 'http://192.168.1.113:8081/JiaoBaoCloudService/'; //求知主url
+			mod.MAINMICROCLASS = 'http://192.168.1.113:8081/JiaoBaoCloudService/'; //微课主url
+			//---开发---end---
+			//---七牛空间和接口---开发---start---
+			mod.QNPB = 'https://qn-educds.jiaobaowang.net/'; //公开空间域名
+			mod.QNGETUPLOADTOKEN = 'https://jbyc.jiaobaowang.net:8504/Api/QiNiu/GetUpLoadToKen';
+			mod.QNGETUPTOKENHEADIMGE = 'https://jbyc.jiaobaowang.net:8504/Api/QiNiu/GetUpLoadToKen'; //获取上传个人头像，群头像，资料头像到七牛的token的url
+			mod.QNGETUPTOKENFILE = 'https://jbyc.jiaobaowang.net:8504/Api/QiNiu/GetUpLoadToKen'; //获取上传文件（云存储）到七牛的token的url
+			mod.QNGETDOWNTOKENFILE = 'http://114.215.222.186:8004/Api/QiNiu/GetAccess'; //获取下载文件（云存储）的token的url，url+七牛文件url
+			mod.QNGETTOKENDELETE = 'http://114.215.222.186:8004/Api/QiNiu/Delete'; //获取批量（或者一个）删除七牛文件的token的url
+			//	---七牛空间和接口---开发---end---
 			break;
 		default:
 			break;
