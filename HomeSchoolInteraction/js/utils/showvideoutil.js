@@ -103,9 +103,29 @@ var ShowVideoUtil = (function(mod) {
 	 */
 	mod.showVideo = function(videoElement, videoPopoverId, videoPath, videoThumb) {
 		if(plus.os.name == 'Android') {
-			playutil.openFileAndroid(videoPath, function(text) {
-				mui.toast(text);
-			});
+			var vid='';
+			var suffix = videoPath.substr(videoPath.lastIndexOf('.'));
+			var url = '';
+			if(suffix=='.mov' || suffix=='.3gp' || suffix=='.mp4' || suffix=='.avi'){
+				//if(unv){plus.runtime.openFile('_doc/camera/'+name);return;}
+				url = '../../html/utils/camera_video.html';
+			} else{
+				mui.toast('系统不支持播放此格式文件');
+			}
+			
+			w=plus.webview.create(url,url,{hardwareAccelerated:true,scrollIndicator:'none',scalable:true,bounce:'all'});
+			w.addEventListener('loaded', function(){
+				w.evalJS('loadMedia("'+videoPath+'")');
+				//w.evalJS('loadMedia("'+'http://localhost:13131/_doc/camera/'+name+'")');
+			}, false );
+			w.addEventListener('close', function(){
+				w = null;
+			}, false);
+			w.show('pop-in');
+			
+//			playutil.openFileAndroid(videoPath, function(text) {
+//				mui.toast(text);
+//			});
 		} else if(plus.os.name == 'iOS') {
 			videoElement.src = videoPath;
 			videoElement.poster = videoThumb;

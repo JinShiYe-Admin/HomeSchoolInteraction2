@@ -149,7 +149,7 @@
 			
 			.tb-width{
 				width: 100%;
-				height: 150px;
+				height: 170px;
 				margin-bottom:10px;
 			}
 			
@@ -192,8 +192,8 @@
 								<table border="0" cellpadding="0" cellspacing="0" class="tb-width">
 									  <tr class="tb-width">
 									    <td class="tb-width" style="position:relative;">
-											<img class="videoImg" :src=noticesDetail.NoticeEncImgAddr onload="this.style.marginTop = (parseInt(this.parentNode.style.height) - this.height)/2 + 'px';this.style.marginLeft = (parseInt(this.parentNode.style.width) - this.width) /2 + 'px'">
-											<img class="videoImg2" src="../../img/utils/playvideo.png" @tap="playVideo">
+												<img style="background: url(../../img/utils/video-loading.gif); background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;"  class="videoImg" :src=noticesDetail.NoticeEncImgAddr onload="this.style.marginTop = (parseInt(this.parentNode.style.height) - this.height)/2 + 'px';this.style.marginLeft = (parseInt(this.parentNode.style.width) - this.width) /2 + 'px'">
+												<img class="videoImg2" src="../../img/utils/playvideo.png" @tap="playVideo">
 										</td>
 									  </tr>
 								</table>
@@ -370,7 +370,8 @@
 					el: "#noticeDetailData",
 					data: {
 						flag: 0, //
-						noticesDetail: {} //获取到的详情
+						noticesDetail: {
+						} //获取到的详情
 					},
 					methods: {
 						playVideo: function() {
@@ -379,7 +380,7 @@
 							ShowVideoUtil.showVideo(document.getElementById("video"), 'videoPopover', noticeDetailData.noticesDetail.NoticeEncAddr[0], noticeDetailData.noticesDetail.NoticeEncImgAddr);
 						}
 					},mounted:function(){
-						console.log('1111111111111'+document.getElementById('video'))
+						console.log('加载完了')
 					}
 				});
 				//点击图片的数字
