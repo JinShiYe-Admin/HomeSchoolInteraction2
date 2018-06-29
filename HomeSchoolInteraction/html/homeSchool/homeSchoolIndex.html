@@ -162,6 +162,7 @@
 		<script src="../../js/publicProtocolNew.js"></script>
 		<script src="../../js/utils/events.js"></script>
 		<script src="../../js/libs/jquery.js"></script>
+		<script src="../../js/utils/app-update.js"></script>
 		<script type="text/javascript">
 			mui.init({
 				statusBarBackground: '#00CFBD',
@@ -218,8 +219,8 @@
 				setTimeout(function() {
 					//侧滑菜单默认隐藏，这样可以节省内存；
 					menu = mui.preload({
-						id: 'mine.html',
-						url: 'mine.html',
+						id: '../../html/homeSchool/mine.html',
+						url: '../../html/homeSchool/mine.html',
 						styles: { 
 							left: 0,
 							width: '70%',
@@ -244,7 +245,7 @@
 							} 
 						}
 					});
-				
+				setTimeout(appUpdate.updateApp(personal.schid), 5000);
 			});
 			//关闭侧滑
 			window.addEventListener('closeMinePage', function(data) {

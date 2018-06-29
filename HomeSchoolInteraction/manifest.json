@@ -150,7 +150,13 @@
 			},
 			"html/homeSchool/homeSchoolIndex.html": {
 				"resources": [
-					"js/libs/crypto-js/crypto-js.js"
+					"js/libs/crypto-js/crypto-js.js",
+					"js/publicProtocolNew.js",
+					"js/libs/jquery.js",
+					"js/storageKeyName.js",
+					"js/utils/events.js",
+					"js/utils/sortSign.js",
+					"js/utils/store.js"
 				],
 				"refer": [
 					"html/homeSchool/noticeList.html",
@@ -185,7 +191,15 @@
 					"js/sciedu/SciEduHomeItem.js",
 					"js/mui.lazyload.js",
 					"js/utils/store.js",
-					"js/mui.lazyload.img.js"
+					"js/mui.lazyload.img.js",
+					"/img/utils/default_load_2.gif",
+					"js/libs/RSA/Barrett.js",
+					"js/libs/crypto-js/require.js",
+					"js/libs/jquery.js",
+					"js/libs/RSA/BigInt.js",
+					"js/libs/RSA/RSA.js",
+					"js/utils/signHmacSHA1.js",
+					"js/utils/RSAEncrypt.js"
 				],
 				"refer": [
 					"html/sciedu/sciedu_show_main.html",
@@ -225,7 +239,14 @@
 					"css/icons-extra.css",
 					"js/utils/vconsole.min.js",
 					"js/utils/vue.js",
-					"js/utils/sortSign.js"
+					"js/utils/sortSign.js",
+					"js/utils/utils.js",
+					"js/utils/store.js",
+					"js/publicProtocolNew.js",
+					"js/mui.min.js",
+					"js/storageKeyName.js",
+					"js/utils/events.js",
+					"js/libs/jquery.js"
 				],
 				"refer": [
 					"html/login/loginIndex.html",
@@ -318,6 +339,17 @@
 					"html/order/packageDetails_order.html",
 					"html/order/packageDetails_renew.html"
 				],
+				"priority": 0
+			},
+			"html/sciedu/sciedu_show_main.html": {
+				"resources": [
+					"js/publicProtocol.js",
+					"js/mui.min.js",
+					"js/storageKeyName.js",
+					"js/utils/events.js",
+					"js/utils/store.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
