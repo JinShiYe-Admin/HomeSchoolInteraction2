@@ -249,10 +249,13 @@ var jQAjaxPost = function(url, data, callback) {
 //						jQAjaxPost(url, data, callback);
 						var urlArr = url.split('/');
 //						console.log('传递的参数' + urlArr[urlArr.length - 1] + ':', JSON.stringify(tempData));
-						data.utoken = data1.RspData;
-						delete data.sign;
-						postDataEncry(urlArr[urlArr.length - 1], {}, data, 0, function(data2) {
-							
+						var tempData = JSON.parse(data);
+						tempData.utoken = data1.RspData;
+						delete tempData.sign;
+						console.log('urlArr:'+urlArr[urlArr.length - 1]);
+						console.log('data:'+JSON.stringify(tempData));
+						postDataEncry(urlArr[urlArr.length - 1], {}, tempData, 0, function(data2) {
+							callback(data2);
 						});
 					} 
 				});
