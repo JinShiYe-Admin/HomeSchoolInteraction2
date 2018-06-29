@@ -95,7 +95,8 @@
       "html/mine/modifyPassword.html",
       "html/mine/myorder.html",
       "html/order/myorder.html",
-      "html/order/orderList.html"
+      "html/order/orderList.html",
+      "html/mine/about.html"
     ],
     "resources": [
       "css/icons-extra.css",
@@ -172,6 +173,12 @@
     "refer": [
       "html/order/packageDetails_order.html",
       "html/order/packageDetails_renew.html"
+    ],
+    "resources": []
+  },
+  "html/homeSchool/noticeDetail.html": {
+    "refer": [
+      "html/utils/camera_video.html"
     ]
   }
 }
