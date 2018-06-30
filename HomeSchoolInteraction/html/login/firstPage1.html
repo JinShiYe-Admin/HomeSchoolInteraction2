@@ -205,9 +205,11 @@
 								}
 							});
 							if(personal.utid=='0'){//无权限
-								plus.webview.open('../../index2.html');
+//								plus.webview.open('../../index2.html');
+								utils.hrefSessionStorage('../../html/login/index2.html', {});
 							}else{
-								utils.mOpenWithData("../../index.html", personal);
+//								utils.mOpenWithData("../../index.html", personal);
+								utils.hrefSessionStorage('../../html/login/index.html', {});
 							}
 						} else if(data1.RspCode == 5){//用户名或密码不正确
 							store.set(window.storageKeyName.PERSONALINFO, {});

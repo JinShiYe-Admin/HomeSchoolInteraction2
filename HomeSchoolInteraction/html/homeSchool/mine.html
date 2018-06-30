@@ -100,16 +100,15 @@
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/utils/vue.js"></script>
 		<script type="text/javascript" src="../../js/utils/vconsole.min.js"></script>
 		<script src="../../js/utils/utils.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../../js/utils/vue.js"></script>
 		<script src="../../js/publicProtocolNew.js"></script>
 		<script src="../../js/storageKeyName.js"></script>
 		<script src="../../js/utils/store.js"></script>
 		<script src="../../js/utils/utils.js"></script>
 		<script src='../../js/utils/sortSign.js'></script>
 		<script src="../../js/storageKeyName.js"></script>
-		<script src="../../js/utils/store.js"></script>
 		<script src="../../js/publicProtocolNew.js"></script>
 		<script src="../../js/utils/events.js"></script>
 		<script src="../../js/libs/jquery.js"></script>
@@ -121,14 +120,21 @@
 					menubutton: false
 				}
 			});
-
+			var personal = store.get(window.storageKeyName.PERSONALINFO);
+			console.log('personal:' + JSON.stringify(personal));
 			var main = null;
 			mui.plusReady(function() {
 				main = plus.webview.currentWebview().opener();
-				var personal = store.get(window.storageKeyName.PERSONALINFO);
-				console.log('personal:' + JSON.stringify(personal));
 
-				var mine = new Vue({
+				window.addEventListener('mine_setHeadImg', function(data) {
+					mine.userImg = data.detail.imgurl;
+					mui.fire(plus.webview.currentWebview().opener(), 'home_setHeadImg', {
+						imgurl: data.detail.imgurl
+					});
+				});
+			});
+			
+			var mine = new Vue({
 					el: "#mine",
 					data: {
 						userName: personal.utname,
@@ -180,15 +186,6 @@
 						}
 					}
 				});
-
-				window.addEventListener('mine_setHeadImg', function(data) {
-					mine.userImg = data.detail.imgurl;
-					mui.fire(plus.webview.currentWebview().opener(), 'home_setHeadImg', {
-						imgurl: data.detail.imgurl
-					});
-				});
-
-			})
 
 			function hideMenu() {
 				mui.fire(plus.webview.currentWebview().opener(), 'hideMenu', {

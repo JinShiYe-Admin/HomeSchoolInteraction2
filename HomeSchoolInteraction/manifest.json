@@ -230,7 +230,9 @@
 				"refer": [
 					"index.html",
 					"html/login/noPermissions.html",
-					"index2.html"
+					"index2.html",
+					"html/login/index2.html",
+					"html/login/index.html"
 				],
 				"priority": 0
 			},
@@ -287,14 +289,16 @@
 				"resources": [],
 				"refer": [
 					"index.html",
-					"html/register/register.html"
+					"html/register/register.html",
+					"html/login/index.html"
 				],
 				"priority": 0
 			},
 			"html/login/firstPage1.html": {
 				"resources": [],
 				"refer": [
-					"index2.html"
+					"index2.html",
+					"html/login/index2.html"
 				],
 				"priority": 0
 			},
@@ -350,6 +354,35 @@
 					"js/utils/store.js"
 				],
 				"refer": [],
+				"priority": 0
+			},
+			"html/homeSchool/noticeDetail.html": {
+				"resources": [],
+				"refer": [
+					"html/utils/camera_video.html"
+				],
+				"priority": 0
+			},
+			"html/login/index2.html": {
+				"resources": [
+					"html/login/loginFnoPermissions.html"
+				],
+				"refer": [
+					"html/Course/courseIndex.html",
+					"html/sciedu/sciedu_home.html",
+					"html/helpStudy/helpStudyIndex.html"
+				],
+				"priority": 0
+			},
+			"html/login/index.html": {
+				"resources": [
+					"html/homeSchool/homeSchoolIndex.html"
+				],
+				"refer": [
+					"html/Course/courseIndex.html",
+					"html/sciedu/sciedu_home.html",
+					"html/helpStudy/helpStudyIndex.html"
+				],
 				"priority": 0
 			}
 		},

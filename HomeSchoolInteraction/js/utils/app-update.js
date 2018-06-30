@@ -3,7 +3,7 @@
  */
 var appUpdate = (function(mod) {
 	
-	mod.androidUpdateUrl='http://192.168.1.121:8081/app/versionCode.xml';
+	mod.androidUpdateUrl='http://192.168.1.121:8071/app/versionCode.xml';
 	mod.iosUpdateUrl='http://itunes.apple.com/lookup?id=1281905607';
 	
 	mod.fileSize;
@@ -32,6 +32,9 @@ var appUpdate = (function(mod) {
 			//android 更新逻辑
 			getXml(school_id);
 		}
+		
+		
+		
 //		var tempVVL = 'android';
 //		//所需参数
 //		var comData9 = {
@@ -91,11 +94,6 @@ var appUpdate = (function(mod) {
 	mod.getAppVersion = function(versionInfo) {
 		plus.runtime.getProperty(plus.runtime.appid, function(inf) {
 			mod.appVersion = getBigVersion(inf.version, plus.runtime.version);
-//			if(versionInfo.delta=='apk'){
-//				mod.appVersion = plus.runtime.version;
-//			}else if(versionInfo.delta=='wgt'){
-//				mod.appVersion = inf.version;
-//			}
 			console.log('应用版本号:' + plus.runtime.version + ',资源升级版本号:' + inf.version)
 			console.log("当前应用版本：" + mod.appVersion);
 			console.log("服务端应用版本：" + JSON.stringify(versionInfo))
@@ -108,6 +106,17 @@ var appUpdate = (function(mod) {
 	 * @param {Object} version1
 	 */
 	var getBigVersion = function(version0, version1) {
+		console.log('应用'+plus);
+		console.log('应用'+plus.device.model);
+		console.log('应用'+plus.runtime);
+		console.log('应用'+plus.runtime.version);
+		console.log('应用'+plus.runtime.appid);
+		console.log('应用'+plus.runtime.arguments);
+		console.log('应用'+plus.runtime.channel);
+		console.log('应用'+plus.runtime.launcher);
+		console.log('应用'+plus.runtime.innerVersion);
+		console.log('应用'+plus.runtime.launchLoadedTime);
+		console.log('应用'+plus.runtime.processId);
 		var version0Array = version0.split('.');
 		var version1Array = version1.split('.');
 		for(var i in version0Array) {
@@ -124,6 +133,7 @@ var appUpdate = (function(mod) {
 	 * @param {Object} versionInfo
 	 */
 	var getUpCondition = function(versionInfo) {
+//		console.log("服务器版本信息：" + JSON.stringify(versionInfo))
 		var appVersions = mod.appVersion.split('.');
 		var newestVersions;
 		if(mui.os.android) { //android
@@ -133,7 +143,7 @@ var appUpdate = (function(mod) {
 			if(appVersionMinMax.max < newestVersionMinMax.max) { //整包更新
 				if(mod.updateFlag == 0) {
 					//询问是否更新
-					    setDialog('智慧校园有新版本，是否下载？', "您已取消下载", function() {
+					    setDialog('教宝云有新版本，是否下载？', "您已取消下载", function() {
 						mod.updateFlag = 1;
 						console.log("下载APK路径：" + versionInfo.download_url)
 						resolveFile(versionInfo.download_url, 1);
@@ -149,28 +159,6 @@ var appUpdate = (function(mod) {
 					resolveFile(versionInfo.download_url, 0);
 				}
 			}
-			/*if(versionInfo.delta =='apk') { //整包更新
-				//判断服务端缓存的应用版本号是否大于本地版本号
-				if(injectVersion(mod.appVersion,versionInfo.new_version)) {
-						//询问是否更新
-					    setDialog('智慧校园有新版本，是否下载？', "您已取消下载", function() {
-						mod.updateFlag = 1;
-						console.log("下载APK路径：" + versionInfo.download_url)
-						resolveFile(versionInfo.download_url, 1);
-					}, function() {
-						mod.updateFlag = 2;
-					})
-				} 
-//				else if(mod.updateFlag == 1) {
-//					resolveFile(versionInfo.download_url, 1);
-//				} 
-
-			}else if(versionInfo.delta =='wgt') {//资源更新
-				//判断服务端缓存的应用版本号是否大于本地版本号
-				if(injectVersion(mod.appVersion,versionInfo.new_version)) { //在线更新
-					resolveFile(versionInfo.download_url, 0);
-				}
-			}*/
 		} else { //ios
 			if(versionInfo) {
 				newestVersions = versionInfo.version.split('.');
@@ -178,7 +166,7 @@ var appUpdate = (function(mod) {
 					return parseInt(verNo) > parseInt(appVersions[index]);
 				})
 				if(hasNewerVersion && mod.updateFlag == 0) { //如果有新版本
-					setDialog('校讯通有新版本，是否下载？', "您已取消下载", function() {
+					setDialog('教宝云有新版本，是否下载？', "您已取消下载", function() {
 						mod.updateFlag = 1;
 						console.log("下载APK路径：")
 						plus.runtime.openURL('https://itunes.apple.com/us/app/%E6%95%99%E5%AE%9D%E4%BA%91/id1281905607?l=zh&ls=1&mt=8');
@@ -189,29 +177,6 @@ var appUpdate = (function(mod) {
 			}
 		}
 	}
-	
-	/**
-	 * 判断服务端 缓存的应用版本号是否大于本地版本号
-	 * @param {Object} localVersion 本地应用版本号或资源升级版本号
-	 * @param {Object} serverVersion 服务端 缓存的应用版本号或资源升级版本号
-	 *  if serverVersion>localVersion 
-	 *  return true
-	 */
-	function injectVersion(localVersion,serverVersion){
-		var _localVersion=localVersion.split('.');
-		var _serverVersion=serverVersion.split('.');
-		if(_localVersion.length==_serverVersion.length){
-			for(var i=0;i<_localVersion.length;i++){
-				if(parseFloat(_serverVersion[i])>parseFloat(_localVersion[i])){
-					return true;
-				}
-			}
-		}else{
-			console.log('版本号长度不一致，无法比较');
-		}
-		return false;
-	}
-	
 	/**
 	 * 设置提示对话框
 	 * @param {Object} hint 提示语
@@ -219,7 +184,7 @@ var appUpdate = (function(mod) {
 	 */
 	var setDialog = function(hint, cancelToast, callback, cancelCallback) {
 		var btnArray = ['是', '否'];
-		mui.confirm(hint, '校讯通', btnArray, function(e) {
+		mui.confirm(hint, '教宝云', btnArray, function(e) {
 			//console.log("当前点击的东东：" + JSON.stringify(e));
 			if(e.index == 0) {
 				callback();
@@ -311,8 +276,8 @@ var appUpdate = (function(mod) {
 	var onStateChanged = function(download, status) {
 		//		//console.log("当前下载状态：" + download.state + ":" + status + ":" + download.totalSize)
 		if(download.state == 3) {
-			if(!store.get("loadFileSize") || store.get("loadFileSize") != download.totalSize) {
-				store.set("loadFileSize", download.totalSize);
+			if(!myStorage.getItem("loadFileSize") || myStorage.getItem("loadFileSize") != download.totalSize) {
+				myStorage.setItem("loadFileSize", download.totalSize);
 			}
 		}
 	}
@@ -355,8 +320,8 @@ var appUpdate = (function(mod) {
 			// 可通过entry对象操作test.html文件 
 			console.log('存在文件！' + entry.isFile);
 			entry.getMetadata(function(metadata) {
-				if(store.get("loadFileSize") == metadata.size) {
-					//console.log("Remove succeeded:" + store.get("loadFileSize"));
+				if(myStorage.getItem("loadFileSize") == metadata.size) {
+					//console.log("Remove succeeded:" + myStorage.getItem("loadFileSize"));
 					if(type) {
 						if(mod.installFlag == 0) {
 							setDialog("新版app文件已下载，是否安装？", "您已取消安装app", function() {
