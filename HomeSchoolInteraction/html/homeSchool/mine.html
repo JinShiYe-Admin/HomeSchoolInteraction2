@@ -60,14 +60,6 @@
 				color: #333333;
 			}
 			
-			.weui-btn {
-				position: absolute;
-				bottom: 50px;
-				margin: 0 10%;
-				width: 80%;
-				height: 40px;
-			}
-			
 			.mui-table-view-cell {
 				color: #333333;
 			}
@@ -76,6 +68,15 @@
 			.mui-icon-extra {
 				color: #00A5E0;
 			}
+			
+			.out-btn {
+				position: absolute;
+				bottom: 50px;
+				margin: 0 10%;
+				width: 80%;
+				height: 40px;
+			}
+
 		</style>
 	</head>
 
@@ -96,7 +97,7 @@
 						</a>
 					</li>
 				</ul>
-				<button id="close-btn" @click="quitLogin" type="button" class="mui-btn mui-btn-danger weui-btn" style="padding: 5px 20px;">退出登录</button>
+				<button id="close-btn" @click="quitLogin" type="button" class="mui-btn mui-btn-danger out-btn" style="padding: 5px 20px;">退出登录</button>
 			</div>
 		</div>
 		<script src="../../js/mui.min.js"></script>

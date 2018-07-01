@@ -396,7 +396,6 @@
 				"js/libs/CryptoJS/rollups/pbkdf2.js",
 				"img/homeSchool/schoolPage5.png",
 				"js/libs/CryptoJS/components/md5.js",
-				"js/libs/myStorage/myStorage.js",
 				"js/libs/CryptoJS/components/mode-cfb.js",
 				"js/utils/ASFiles.js",
 				"js/libs/crypto-js/sha3.js",

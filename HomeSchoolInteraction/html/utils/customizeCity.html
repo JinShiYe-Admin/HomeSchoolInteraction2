@@ -211,14 +211,6 @@
 				//	cities: eduArray //已经定制的城市数组
 				//}
 
-				//自己当前手机号对应的城市(可能修改后的)，从内存中获取
-				//var tempInfo = window.myStorage.getItem(window.storageKeyName.PERSONALINFO);
-//				if(pInfo.utid != 0) { //用户显示当前城市
-//					document.getElementById("userCityTitle").style.display = 'block';
-//					document.getElementById("userCity").style.display = 'inline';
-//					addBeforeCity(pInfo.uarea);
-//				}
-
 				if(main.data.id == 'uarea') { //uarea账号地区
 					document.getElementById("title").innerText = '所在地';
 					selectId = main.data.cities[0].acode;
@@ -369,10 +361,8 @@
 							};
 							//记录游客订制的城市
 							if(main.data.id == '0') { //科教
-								//								window.myStorage.setItem(window.storageKeyName.SECITY, localCity);
 								store.set(window.storageKeyName.SECITY, localCity);
 							} else if(main.data.id == '1') { //展现
-								//								window.myStorage.setItem(window.storageKeyName.SHOWCITY, localCity);
 								store.set(window.storageKeyName.SHOWCITY, localCity);
 							}
 							//							events.fireToPageNone(main.data.webid, 'customizeCity', citiesInfo);
@@ -658,7 +648,6 @@
 							}
 							pInfo.uarea = model_area;
 						}
-						//						window.myStorage.setItem(window.storageKeyName.PERSONALINFO, pInfo);
 						store.set(window.storageKeyName.PERSONALINFO, pInfo);
 						events.fireToPageNone(main.data.webid, 'infoChanged');
 						mui.back();

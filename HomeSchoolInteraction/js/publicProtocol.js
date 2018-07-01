@@ -1,7 +1,6 @@
 //本页面存放界面中需要的协议，接口作用、需要传值内容、调用的方法
 
 //本地存储
-document.write('<script src="../../js/libs/myStorage/myStorage.js"><\/script>');
 document.write('<script src="../../js/storageKeyName.js"><\/script>');
 //加密
 document.write('<script src="../../js/libs/RSA/Barrett.js"><\/script>');
@@ -101,7 +100,6 @@ var renewToken = function(tempFlag, url, encryData, commonData, flag, waitingDia
 		wd.close();
 		if(data.RspCode == 0) {
 			personalUTID.utoken = data.RspData;
-			window.myStorage.setItem(window.storageKeyName.PERSONALINFO, personalUTID);
 			if (tempFlag == 1) {
 				postDataEncryMMM(url, encryData, commonData, flag, waitingDialog, callback);
 			}

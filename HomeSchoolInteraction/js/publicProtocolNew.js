@@ -7,7 +7,6 @@
 //document.write('<script src="../js/utils/signHmacSHA1.js"><\/script>');
 //document.write('<script src="../js/lib/jquery.js"><\/script>');
 //document.write('<script src="../js/utils/sortSign.js"><\/script>');
-//document.write('<script src="../js/utils/myStorage.js"><\/script>');
 //document.write('<script src="../../js/storageKeyName.js"><\/script>');
 
 function generateUUID() {

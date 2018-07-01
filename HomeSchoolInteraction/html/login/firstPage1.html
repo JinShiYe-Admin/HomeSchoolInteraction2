@@ -7,11 +7,6 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" src="../../js/mui.min.js"></script>
-		<!--<script type="text/javascript" src="../js/utils/utils.js"></script>
-		<script type="text/javascript" src="../js/utils/storageutil.js"></script>-->
-		<!--<link rel="stylesheet" href="../js/demoCssJs/weui.min.css">
-		<link rel="stylesheet" href="../js/demoCssJs/jquery-weui.css">
-		<link rel="stylesheet" href="../js/demoCssJs/demos.css">-->
 		<script type="text/javascript">
 		</script>
 
@@ -33,7 +28,6 @@
 	<script src='../../js/libs/jquery.js'></script>
 	<script src="../../js/publicProtocolNew.js"></script>
 	<script src='../../js/utils/sortSign.js'></script>
-	<script src="../../js/utils/myStorage.js"></script>
 	<script src="../../js/storageKeyName.js"></script>
 	<script src="../../js/jquery-weui.min.js"></script>
 	<script src="../../js/utils/store.js" type="text/javascript" charset="utf-8"></script>
@@ -136,7 +130,6 @@
 			postDataEncry('ShakeHand', enData0, comData0, 0, function(data) {
 				console.log('2121212');
 				if(data.RspCode == 0) {
-					//							window.myStorage.setItem(window.storageKeyName.SHAKEHAND, data.RspData);
 					store.set(window.storageKeyName.SHAKEHAND, data.RspData);
 					var enData1 = {
 						uid: tempName, //用户账号

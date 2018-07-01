@@ -253,8 +253,6 @@
 						if(dataHistory != 'true') { //不是历史记录
 							////console.log('dataHistory ' + dataHistory);
 							this.setAttribute('data-seHistory', true);
-//							var personalUID = store.get(window.storageKeyName.PERSONALINFO).uid;
-//							var History = window.myStorage.getItem(window.storageKeyName.seHistory + '_' + personalUID);
 							var personalUID = store.get(window.storageKeyName.PERSONALINFO).uid;
 							var History = store.get(window.storageKeyName.seHistory + '_' + personalUID);
 							if(History == null) {
@@ -264,7 +262,6 @@
 							if(History.length > 100) {
 								History.splice(0, 1); //删掉第一个
 							}
-//							window.myStorage.setItem(window.storageKeyName.seHistory + '_' + personalUID, History);
 							store.set(window.storageKeyName.seHistory + '_' + personalUID, History);
 							////console.log('tap seHistory ' + JSON.stringify(History));
 						}
@@ -407,12 +404,9 @@
 				var personalUID = store.get(window.storageKeyName.PERSONALINFO).uid;
 				var seHistory = [];
 				//如果没有这个人的记录，则创建一份空记录
-//				if(window.myStorage.getItem(window.storageKeyName.seHistory + '_' + personalUID)) {
 				if(store.get(window.storageKeyName.seHistory + '_' + personalUID)) {
-//					seHistory = window.myStorage.getItem(window.storageKeyName.seHistory + '_' + personalUID);
 					seHistory = store.get(window.storageKeyName.seHistory + '_' + personalUID);
 				} else {
-//					window.myStorage.setItem(window.storageKeyName.seHistory + '_' + personalUID, []);
 					store.set(window.storageKeyName.seHistory + '_' + personalUID, []);
 				}
 				var placeholder = '../../' + window.storageKeyName.DEFAULTSCIEDUIMAGELOAD;
@@ -467,7 +461,6 @@
 				//44.获取个人的订制城市
 				//游客身份
 				if(!store.get(window.storageKeyName.PERSONALINFO).utid) {
-//					var localCity = window.myStorage.getItem(window.storageKeyName.SECITY);
 					var localCity = store.get(window.storageKeyName.SECITY);
 					if(localCity && localCity.length != 0) {
 						eduArray = localCity;
