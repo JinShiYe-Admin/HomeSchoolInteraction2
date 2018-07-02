@@ -21,7 +21,7 @@
 	</head>
 
 	<body>
-		<nav class="mui-bar mui-bar-tab">
+		<nav class="mui-bar mui-bar-tab" id="navIndex">
 				<a id="defaultTab" class="mui-tab-item mui-active" href="../../html/login/loginFnoPermissions.html">
 					<span class="mui-icon iconfont icon-jiaxiaohudong"></span>
 					<span class="mui-tab-label">家校互动</span>
@@ -58,6 +58,23 @@
 			};
 
 			var aniShow = {};
+			var oHeight = $(document).height(); //屏幕当前的高度
+			$(window).resize(function(){
+				var wvs=plus.webview.getDisplayWebview();
+				if($(document).height() < oHeight){
+					document.getElementById('navIndex').style.display='none'
+					for(var i=0;i<wvs.length;i++){
+							wvs[i].setStyle({top: '0px',bottom: '0px'})
+					}
+					
+			    }else{
+			        document.getElementById('navIndex').style.display='inherit'
+					for(var i=0;i<wvs.length;i++){
+						wvs[i].setStyle({top: '0px',bottom: '51px'})
+					}
+			    } 
+				
+			});
 
 			//创建子页面，首个选项卡页面显示，其它均隐藏；
 			mui.plusReady(function() {
